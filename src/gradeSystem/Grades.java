@@ -40,4 +40,27 @@ public class Grades {
 	{
 		return this.scores;
 	}
+	public String getName()
+	{
+		return this.name;
+	}
+	public boolean match(String studentID){
+		if(studentID.equals(this.studentID)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	public void showGrade(){
+		System.out.println("Scores of " + name + ": ");
+		System.out.println("lab1:        " + scores[0]);
+		System.out.println("lab2:        " + scores[1]);
+		System.out.println("lab3:        " + scores[2]);
+		System.out.println("midTerm:     " + scores[3]);
+		System.out.println("final:       " + scores[4]);
+		System.out.println("total grade: " + totalGrade);
+	}
+	public void showRank(int rank){
+		System.out.println("Rank of " + name + ": " + rank);
+	}
 }
