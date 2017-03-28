@@ -12,6 +12,7 @@ import java.util.LinkedList;
 public class GradeSystem {
 	private double [] weights;
 	private LinkedList<Grades> gradeList;
+	private int listSize;
 	
 	GradeSystem() throws IOException{
 		this.gradeList = new LinkedList<Grades>();
@@ -19,26 +20,37 @@ public class GradeSystem {
 		Reader reader = new InputStreamReader(new FileInputStream("src/data/gradeinput.txt"), "utf-8");
 		BufferedReader br = new BufferedReader(reader);
 		
+		String first_line;
+		first_line = br.readLine().replace("\uFEFF", "");
+		String [] first_input = first_line.split(" ");
+		Grades first_grade = new Grades(first_input[0], first_input[1], Integer.parseInt(first_input[2]), Integer.parseInt(first_input[3]), Integer.parseInt(first_input[4]), Integer.parseInt(first_input[5]), Integer.parseInt(first_input[6]));
+		first_grade.calculateTotalGrade(weights);
+		this.gradeList.add(first_grade);
+		
 		while( br.ready() ){
-			String [] input;
+			String [] input = null;
 			input = br.readLine().split(" ");
 			Grades grade = new Grades(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), Integer.parseInt(input[4]), Integer.parseInt(input[5]), Integer.parseInt(input[6]));
 			grade.calculateTotalGrade(weights);
 			gradeList.add(grade);
 		}
+		this.listSize = this.gradeList.size();
 	}
 	
 	public boolean containsID(String studentID)
 	{
-		if(this.gradeList.contains(studentID))
-			return true;
-		else
-			return false;
+		for(int i=0;i<this.listSize;i++){
+			System.out.println(this.gradeList.get(i).getStudentID());
+			if(this.gradeList.get(i).getStudentID().equals(studentID)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	public void showGrade(String studentID)
 	{
-		for(int i=0;;i++){
+		for(int i=0;i<this.listSize;i++){
 			if(this.gradeList.get(i).getStudentID().equals(studentID)){
 				this.gradeList.get(i).getScores();		// return a integer score array
 			}

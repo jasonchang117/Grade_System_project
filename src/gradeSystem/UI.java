@@ -17,7 +17,7 @@ public class UI {
 	public void checkID(String studentID)
 	{
 		//debug code
-		System.out.println(studentID);
+		//System.out.println(studentID);
 		if(aGradeSystem.containsID(studentID))
 		{
 			showWelcomeMsg();
