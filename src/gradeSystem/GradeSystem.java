@@ -22,8 +22,7 @@ public class GradeSystem {
 		while( br.ready() ){
 			String [] input;
 			input = br.readLine().split(" ");
-			Grades grade = null;
-			grade = new Grades(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), Integer.parseInt(input[4]), Integer.parseInt(input[5]), Integer.parseInt(input[6]));
+			Grades grade = new Grades(input[0], input[1], Integer.parseInt(input[2]), Integer.parseInt(input[3]), Integer.parseInt(input[4]), Integer.parseInt(input[5]), Integer.parseInt(input[6]));
 			grade.calculateTotalGrade(weights);
 			gradeList.add(grade);
 		}
@@ -58,6 +57,15 @@ public class GradeSystem {
 			}
 		});
 	}
+	public void showAverage(String studentID)
+	{
+		int size = this.gradeList.size();
+		for(int i=0;i<size;i++){
+			if(this.gradeList.get(i).getStudentID().equals(studentID)){
+				this.gradeList.get(i).getTotalGrade();		// return a integer score array
+			}
+		}
+	}
 	
 	public void updateWeights(double [] newWeight)
 	{
@@ -66,15 +74,4 @@ public class GradeSystem {
 		}
 	}
 	
-	/**
-	 * 
-	 * 
-	 * 
-	 * 
-	 * This main function is just for testing
-	 */
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		GradeSystem gradeSystem = new GradeSystem();
-	}
 }
