@@ -50,25 +50,27 @@ public class UI {
 				break;
 			default:
 				showErrorMsg();
+				return;
 		}
+		promptCommand();
 	}
 	
 	public void promptID()
 	{
 		System.out.println("Please enter your student ID or enter E to exit.");
 		String option = scanner.next();
-		if(option == "E"){
+		if(option.equals("E")){
 			showFinishMsg();
 		}else{
 			checkID(option);
 		}
 	}
 	public void showCommandOptionsMsg(){
-		System.out.println("Please choose the command:"
-				+ "1) G -> show grade"
-				+ "2) R -> show rank"
-				+ "3) A -> show average"
-				+ "4) W -> update wights"
+		System.out.println("Please choose the command:\n"
+				+ "1) G -> show grade\n"
+				+ "2) R -> show rank\n"
+				+ "3) A -> show average\n"
+				+ "4) W -> update wights\n"
 				+ "5) E -> exit");
 	}
 	public double[] getWeight(){

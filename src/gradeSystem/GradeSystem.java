@@ -34,13 +34,13 @@ public class GradeSystem {
 			grade.calculateTotalGrade(weights);
 			gradeList.add(grade);
 		}
+		sortGrades();
 		this.listSize = this.gradeList.size();
 	}
 	
 	public boolean containsID(String studentID)
 	{
 		for(int i=0;i<this.listSize;i++){
-			System.out.println(this.gradeList.get(i).getStudentID());
 			if(this.gradeList.get(i).getStudentID().equals(studentID)){
 				return true;
 			}
@@ -50,33 +50,30 @@ public class GradeSystem {
 	
 	public void showGrade(String studentID)
 	{
-		for(int i=0;i<this.listSize;i++){
-			if(this.gradeList.get(i).getStudentID().equals(studentID)){
-				this.gradeList.get(i).getScores();		// return a integer score array
+		for(Grades grade : gradeList){
+			if(grade.match(studentID)){
+				grade.showGrade();
 			}
 		}
 	}
 	
 	public void showRank(String studentID)
 	{
-		Collections.sort(this.gradeList, new Comparator<Grades>(){
-			@Override
-			public int compare(Grades g1, Grades g2) {
-				if(g1.getTotalGrade() > g2.getTotalGrade())
-					return 1;
-				else
-					return -1;
+		for(int i=0; i<listSize; i++){
+			if(gradeList.get(i).match(studentID)){
+				gradeList.get(i).showRank(i);
 			}
-		});
+		}
 	}
 	public void showAverage(String studentID)
 	{
-		int size = this.gradeList.size();
-		for(int i=0;i<size;i++){
-			if(this.gradeList.get(i).getStudentID().equals(studentID)){
-				this.gradeList.get(i).getTotalGrade();		// return a integer score array
-			}
-		}
+		int []sum = new int[5];
+		sum = calculateAverage();
+		System.out.println("lab1:        " + sum[0]);
+		System.out.println("lab2:        " + sum[1]);
+		System.out.println("lab3:        " + sum[2]);
+		System.out.println("midTerm:     " + sum[3]);
+		System.out.println("final:       " + sum[4]);
 	}
 	
 	public void updateWeights(double [] newWeight)
@@ -84,6 +81,34 @@ public class GradeSystem {
 		for(int i=0;i<5;i++){
 			this.weights[i] = newWeight[i];
 		}
+		for(Grades grade: gradeList){
+			grade.calculateTotalGrade(newWeight);
+		}
+		sortGrades();
 	}
-	
+	private void sortGrades(){
+		Collections.sort(this.gradeList, new Comparator<Grades>(){
+			@Override
+			public int compare(Grades g1, Grades g2) {
+				if(g1.getTotalGrade() < g2.getTotalGrade())
+					return 1;
+				else
+					return -1;
+			}
+		});
+	}
+	private int[] calculateAverage(){
+		int [] sum = new int[5];
+		int [] scores = new int[5];
+		for(Grades grade : gradeList){
+			 scores = grade.getScores();
+			 for(int i=0; i<5; i++){
+				 sum[i] += scores[i];
+			 }
+		}
+		for(int i=0; i<5; i++){
+			sum[i] = (int)(Math.round((double)sum[i] / listSize));
+		}
+		return sum;
+	}
 }
