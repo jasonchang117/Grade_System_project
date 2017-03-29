@@ -65,6 +65,7 @@ public class GradeSystem {
 			}
 		}
 	}
+	
 	public void showAverage(String studentID)
 	{
 		int []sum = new int[5];
@@ -78,14 +79,24 @@ public class GradeSystem {
 	
 	public void updateWeights(double [] newWeight)
 	{
-		for(int i=0;i<5;i++){
-			this.weights[i] = newWeight[i];
+		int check = 0;
+		for(int i=0;i<5;i++)
+			check += newWeight[i];
+		if(check != 100){
+			System.out.println("°t¤À¿ù»~!");
+			return;
 		}
+			
+		for(int i=0;i<5;i++){
+			this.weights[i] = newWeight[i]/100;
+		}
+		
 		for(Grades grade: gradeList){
-			grade.calculateTotalGrade(newWeight);
+			grade.calculateTotalGrade(weights);
 		}
 		sortGrades();
 	}
+	
 	private void sortGrades(){
 		Collections.sort(this.gradeList, new Comparator<Grades>(){
 			@Override
@@ -97,6 +108,7 @@ public class GradeSystem {
 			}
 		});
 	}
+	
 	private int[] calculateAverage(){
 		int [] sum = new int[5];
 		int [] scores = new int[5];
@@ -110,5 +122,12 @@ public class GradeSystem {
 			sum[i] = (int)(Math.round((double)sum[i] / listSize));
 		}
 		return sum;
+	}
+	
+	public void showName(String studentID){
+		for(Grades grade : gradeList){
+			if(grade.match(studentID))
+				System.out.println(grade.getName());
+		}
 	}
 }
