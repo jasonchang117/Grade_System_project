@@ -2,6 +2,7 @@ package gradeSystem;
 
 public class Grades {
 	private int [] scores;
+	private String[] scoreType = new String[] {"lab_1   ", "lab_2   ", "lab_3   ", "midTerm ", "final   "};
 	private String studentID;
 	private String name;
 	private int totalGrade;
@@ -53,12 +54,16 @@ public class Grades {
 	}
 	public void showGrade(){
 		System.out.println("Scores of " + name + ": ");
-		System.out.println("lab1:        " + scores[0]);
-		System.out.println("lab2:        " + scores[1]);
-		System.out.println("lab3:        " + scores[2]);
-		System.out.println("midTerm:     " + scores[3]);
-		System.out.println("final:       " + scores[4]);
-		System.out.println("total grade: " + totalGrade);
+		for(int i=0;i<5;i++){
+			if(scores[i] < 60)
+				System.out.println(scoreType[i] + ": " + scores[i] + "*");
+			else
+				System.out.println(scoreType[i] + ": " + scores[i]);
+		}
+		if(totalGrade < 60)
+			System.out.println("total grade: " + totalGrade + "*");
+		else
+			System.out.println("total grade: " + totalGrade);
 	}
 	public void showRank(int rank){
 		System.out.println("Rank of " + name + ": " + rank);
