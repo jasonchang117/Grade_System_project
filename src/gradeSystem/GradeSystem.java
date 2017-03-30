@@ -38,6 +38,20 @@ public class GradeSystem {
 		this.listSize = this.gradeList.size();
 	}
 	
+	/* method containsID --------------------------------------------------------------------------------
+	 * 
+	 * This method returns the boolean value that whether the studentID is in the gradeList.
+	 * 
+	 * @ param		A string. A studentID to be check.
+	 * @ return		A boolean value, true if we find the ID.
+	 * 
+	 * Pseudo code:
+	 * 1. A for loop that go through the whole list and check the studentID.
+	 * 2. If we find the target studentID, returns true. Returns false if we cannot find the same studentID.
+	 *
+	 * Time estimation O(n)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	public boolean containsID(String studentID)
 	{
 		for(int i=0;i<this.listSize;i++){
@@ -48,6 +62,20 @@ public class GradeSystem {
 		return false;
 	}
 	
+	/* method showGrade ----------------------------------------------------------------------------------
+	 * 
+	 * This method simply calls the method grade.match() to check whether the studentID is matched, 
+	 * and call grade.showGrade() to print all the grade of this studentID.
+	 * 
+	 * @ param		A string. A studentID to be check.
+	 * 
+	 * Pseudo code:
+	 * 1. A for loop that go through the whole list and check the studentID.
+	 * 2. Call grade.showGrade() to print the grade of the input studentID.
+	 *
+	 * Time estimation O(n)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	public void showGrade(String studentID)
 	{
 		for(Grades grade : gradeList){
@@ -57,6 +85,21 @@ public class GradeSystem {
 		}
 	}
 	
+	
+	/* method showRank ----------------------------------------------------------------------------------
+	 * 
+	 * This method shows the rank of the input studentID.
+	 * 
+	 * @ param		A string. A studentID to be check.
+	 * 
+	 * Pseudo code:
+	 * 1. A for loop that go through the whole list and check the studentID.
+	 * 2. We show the rank of input studentID.
+	 * 3. Because the gradeList is already sorted according to the totalGrade, we simply use iterator i as rank.
+	 *
+	 * Time estimation O(n)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	public void showRank(String studentID)
 	{
 		for(int i=0; i<listSize; i++){
@@ -66,6 +109,18 @@ public class GradeSystem {
 		}
 	}
 	
+	/* method showAverage -------------------------------------------------------------------------------
+	 * 
+	 * This method shows the average score of each project.
+	 * 
+	 * @ param		a string. A studentID to be check.
+	 * 
+	 * Pseudo code:
+	 * 1. We just simply print the result of average grades returned by calculateAverage().
+	 * 
+	 * Time estimation O(1)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	public void showAverage(String studentID)
 	{
 		int []sum = new int[5];
@@ -77,6 +132,21 @@ public class GradeSystem {
 		System.out.println("final:       " + sum[4]);
 	}
 	
+	/* method updateWeights ------------------------------------------------------------------------------
+	 * 
+	 * This method updates the weights of each project in this class.
+	 * 
+	 * @ param		an input double array, newWeight.
+	 * 
+	 * Pseudo code:
+	 * 1. We first get the new value of weights and check the sum which is valid or not.
+	 * 2. If the new weights are valid, we update the weights.
+	 * 3. We re-calculate all the totalGrades in the list.
+	 * 4. Call sortGrade() method to update the rank.
+	 *
+	 * Time estimation O(n)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	public void updateWeights(double [] newWeight)
 	{
 		int check = 0;
@@ -97,6 +167,17 @@ public class GradeSystem {
 		sortGrades();
 	}
 	
+	/* method sortGrades ---------------------------------------------------------------------------------
+	 * 
+	 * This method sorts the list according to the totalGrade in the list.
+	 * 
+	 * Pseudo code:
+	 * 1. Use the build-in method to sort the gradeList.
+	 * 2. Implement the compare function that our final list is sorted from higher score to lower score.
+	 * 
+	 * Time estimation O( n log(n) )   Note that built-in sorting method is modified merge-sort.
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	private void sortGrades(){
 		Collections.sort(this.gradeList, new Comparator<Grades>(){
 			@Override
@@ -109,6 +190,19 @@ public class GradeSystem {
 		});
 	}
 	
+	/* method calculateAverage ---------------------------------------------------------------------------
+	 * 
+	 * This method calculates the average score of each project.
+	 * 
+	 * @ return		An integer array, the average scores of each project.
+	 * 
+	 * Pseudo code:
+	 * 1. We first get the summation of each project.
+	 * 2. Calculate the average score and round their value.
+	 * 
+	 * Time estimation O(n)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	private int[] calculateAverage(){
 		int [] sum = new int[5];
 		int [] scores = new int[5];
@@ -124,6 +218,19 @@ public class GradeSystem {
 		return sum;
 	}
 	
+	/* method updateWeights ------------------------------------------------------------------------------
+	 * 
+	 * This method updates the weights of each subject in this class.
+	 * 
+	 * @ param		A string. The input studentID that we want to show its name.
+	 * 
+	 * Pseudo code:
+	 * 1. We first go through the whole list and find our terget studentID.
+	 * 2. Call grade.getName() to print the user's name.
+	 * 
+	 * Time estimation O(n)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	public void showName(String studentID){
 		for(Grades grade : gradeList){
 			if(grade.match(studentID))
