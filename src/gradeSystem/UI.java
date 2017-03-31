@@ -149,6 +149,7 @@ public class UI {
 	 ----------------------------------------------------------------------------------------------------*/
 	public double[] getWeight(){
 		double [] weights = new double[5];
+		System.out.println("\n請輸入新配分");
 		for(int i=0; i<5; i++){
 			System.out.print(scoreType[i] + ": ");
 			double weight = scanner.nextDouble();
