@@ -6,7 +6,7 @@ public class Grades {
 	private String name;
 	private int totalGrade;
 	
-	Grades(String ID, String name, int lab_1, int lab_2, int lab_3, int midterm_exam, int final_exam)
+	public Grades(String ID, String name, int lab_1, int lab_2, int lab_3, int midterm_exam, int final_exam)
 	{
 		this.scores = new int[] {lab_1, lab_2, lab_3, midterm_exam, final_exam};
 		this.studentID = ID;

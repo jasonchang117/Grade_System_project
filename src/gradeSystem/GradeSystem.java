@@ -14,7 +14,7 @@ public class GradeSystem {
 	private LinkedList<Grades> gradeList;
 	private int listSize;
 	
-	GradeSystem() throws IOException{
+	public GradeSystem() throws IOException{
 		this.gradeList = new LinkedList<Grades>();
 		this.weights = new double[] {0.1, 0.1, 0.1, 0.3, 0.4};  // lab_1, lab_2, lab_3, midterm_exam, final_exam
 		Reader reader = new InputStreamReader(new FileInputStream("src/data/gradeinput.txt"), "utf-8");
@@ -114,15 +114,13 @@ public class GradeSystem {
 	 * 
 	 * This method shows the average score of each project.
 	 * 
-	 * @ param		a string. A studentID to be check.
-	 * 
 	 * Pseudo code:
 	 * 1. We just simply print the result of average grades returned by calculateAverage().
 	 * 
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	public void showAverage(String studentID)
+	public void showAverage()
 	{
 		int []sum = new int[5];
 		sum = calculateAverage();

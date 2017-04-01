@@ -57,7 +57,7 @@ public class UI {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	public void promptCommand()
+	private void promptCommand()
 	{
 		System.out.print(SystemMsg.promptCommandMsg);
 		String command = scanner.next();
@@ -69,7 +69,7 @@ public class UI {
 				aGradeSystem.showRank(userID);
 				break;
 			case "A":
-				aGradeSystem.showAverage(userID);
+				aGradeSystem.showAverage();
 				break;
 			case "W":
 				aGradeSystem.updateWeights(getWeight());
@@ -129,7 +129,7 @@ public class UI {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	public double[] getWeight(){
+	private double[] getWeight(){
 		double [] weights = new double[5];
 		System.out.print(SystemMsg.enterNewWeightMsg);
 		for(int i=0; i<5; i++){
