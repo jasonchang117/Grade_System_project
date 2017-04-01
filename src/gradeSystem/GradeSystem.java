@@ -34,6 +34,7 @@ public class GradeSystem {
 			grade.calculateTotalGrade(weights);
 			gradeList.add(grade);
 		}
+		br.close();
 		sortGrades();
 		this.listSize = this.gradeList.size();
 	}
@@ -125,11 +126,9 @@ public class GradeSystem {
 	{
 		int []sum = new int[5];
 		sum = calculateAverage();
-		System.out.println("lab1:        " + sum[0]);
-		System.out.println("lab2:        " + sum[1]);
-		System.out.println("lab3:        " + sum[2]);
-		System.out.println("midTerm:     " + sum[3]);
-		System.out.println("final:       " + sum[4]);
+		for(int i=0; i<5; i++){
+			System.out.printf("%-11s: %d\r\n", SystemMsg.scoreType[i], sum[i]);
+		}
 	}
 	
 	/* method updateWeights ------------------------------------------------------------------------------
@@ -153,18 +152,17 @@ public class GradeSystem {
 		for(int i=0;i<5;i++)
 			check += newWeight[i];
 		if(check != 100){
-			System.out.println("°t¤À¿ù»~!");
-			return;
+			System.out.print(SystemMsg.weightError);
+			System.out.println(check);
+		}else{
+			for(int i=0;i<5;i++){
+				this.weights[i] = newWeight[i]/100;
+			}		
+			for(Grades grade: gradeList){
+				grade.calculateTotalGrade(weights);
+			}
+			sortGrades();
 		}
-			
-		for(int i=0;i<5;i++){
-			this.weights[i] = newWeight[i]/100;
-		}
-		
-		for(Grades grade: gradeList){
-			grade.calculateTotalGrade(weights);
-		}
-		sortGrades();
 	}
 	
 	/* method sortGrades ---------------------------------------------------------------------------------
@@ -231,10 +229,11 @@ public class GradeSystem {
 	 * Time estimation O(n)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	public void showName(String studentID){
+	public String searchName(String studentID){
 		for(Grades grade : gradeList){
 			if(grade.match(studentID))
-				System.out.println(grade.getName());
+				return grade.getName();
 		}
+		return null;
 	}
 }

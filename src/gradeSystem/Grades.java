@@ -2,7 +2,6 @@ package gradeSystem;
 
 public class Grades {
 	private int [] scores;
-	private String[] scoreType = new String[] {"lab_1   ", "lab_2   ", "lab_3   ", "midTerm ", "final   "};
 	private String studentID;
 	private String name;
 	private int totalGrade;
@@ -140,17 +139,17 @@ public class Grades {
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
 	public void showGrade(){
-		System.out.println("Scores of " + name + ": ");
+		System.out.println( name + "的分數: ");
 		for(int i=0;i<5;i++){
 			if(scores[i] < 60)
-				System.out.println(scoreType[i] + ": " + scores[i] + "*");
+				System.out.printf("%-11s: %d*\r\n", SystemMsg.scoreType[i], scores[i]);
 			else
-				System.out.println(scoreType[i] + ": " + scores[i]);
+				System.out.printf("%-11s: %d\r\n", SystemMsg.scoreType[i], scores[i]);
 		}
 		if(totalGrade < 60)
-			System.out.println("total grade: " + totalGrade + "*");
+			System.out.printf("%-11s: %d\r\n*" , "total-grade", totalGrade);
 		else
-			System.out.println("total grade: " + totalGrade);
+			System.out.printf("%-11s: %d\r\n" , "total-grade", totalGrade);
 	}
 	
 	/* method showRank -----------------------------------------------------------------------------------
@@ -166,6 +165,6 @@ public class Grades {
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
 	public void showRank(int rank){
-		System.out.println("Rank of " + name + ": " + rank);
+		System.out.println(name + "的排名: " + rank);
 	}
 }
