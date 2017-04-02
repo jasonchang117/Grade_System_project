@@ -12,7 +12,9 @@ import gradeSystem.SystemMsg;
 import gradeSystem.UI;
 
 public class TestCase2 {
-	
+	/*
+	 * ¥Î¨Ó´úUI
+	 */
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before

@@ -51,7 +51,7 @@ public class Grades {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	public double getTotalGrade()
+	public int getTotalGrade()
 	{
 		return this.totalGrade;
 	}
@@ -147,7 +147,7 @@ public class Grades {
 				System.out.printf("%-11s: %d\r\n", SystemMsg.scoreType[i], scores[i]);
 		}
 		if(totalGrade < 60)
-			System.out.printf("%-11s: %d\r\n*" , "total-grade", totalGrade);
+			System.out.printf("%-11s: %d*\r\n" , "total-grade", totalGrade);
 		else
 			System.out.printf("%-11s: %d\r\n" , "total-grade", totalGrade);
 	}

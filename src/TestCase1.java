@@ -11,7 +11,9 @@ import gradeSystem.GradeSystem;
 import gradeSystem.SystemMsg;
 
 public class TestCase1 {
-	
+	/*
+	 * ¥Î¨Ó´úGradeSystem
+	 */
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @Before
