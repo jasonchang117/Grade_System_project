@@ -1,3 +1,4 @@
+package test;
 import static org.junit.Assert.*;
 
 import java.io.ByteArrayInputStream;
@@ -14,6 +15,9 @@ import gradeSystem.UI;
 public class TestCase2 {
 	/*
 	 * ¥Î¨Ó´úUI
+	 */
+	/**
+	 * @uml.property  name="outContent"
 	 */
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 

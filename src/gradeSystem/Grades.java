@@ -1,9 +1,21 @@
 package gradeSystem;
 
 public class Grades {
+	/**
+	 * @uml.property  name="scores"
+	 */
 	private int [] scores;
+	/**
+	 * @uml.property  name="studentID"
+	 */
 	private String studentID;
+	/**
+	 * @uml.property  name="name"
+	 */
 	private String name;
+	/**
+	 * @uml.property  name="totalGrade"
+	 */
 	private int totalGrade;
 	
 	public Grades(String ID, String name, int lab_1, int lab_2, int lab_3, int midterm_exam, int final_exam)
@@ -51,6 +63,10 @@ public class Grades {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * @uml.property  name="totalGrade"
+	 */
 	public int getTotalGrade()
 	{
 		return this.totalGrade;
@@ -68,6 +84,10 @@ public class Grades {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * @uml.property  name="studentID"
+	 */
 	public String getStudentID()
 	{
 		return this.studentID;
@@ -85,6 +105,10 @@ public class Grades {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * @uml.property  name="scores"
+	 */
 	public int[] getScores()
 	{
 		return this.scores;
@@ -102,6 +126,10 @@ public class Grades {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * @uml.property  name="name"
+	 */
 	public String getName()
 	{
 		return this.name;

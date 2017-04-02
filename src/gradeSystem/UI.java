@@ -3,9 +3,22 @@ package gradeSystem;
 import java.util.Scanner;
 
 public class UI {
+	/**
+	 * @uml.property  name="aGradeSystem"
+	 * @uml.associationEnd  multiplicity="(1 1)"
+	 */
 	private GradeSystem aGradeSystem;
+	/**
+	 * @uml.property  name="userID"
+	 */
 	private String userID; 
+	/**
+	 * @uml.property  name="scanner"
+	 */
 	private Scanner scanner;
+	/**
+	 * @uml.property  name="scoreType" multiplicity="(0 -1)" dimension="1"
+	 */
 	private String [] scoreType = new String[] {"lab_1", "lab_2", "lab_3", "mid-term", "final_exam"};
 	
 	public UI() throws Exception

@@ -10,8 +10,18 @@ import java.util.Comparator;
 import java.util.LinkedList;
 
 public class GradeSystem {
+	/**
+	 * @uml.property  name="weights" multiplicity="(0 -1)" dimension="1"
+	 */
 	private double [] weights;
+	/**
+	 * @uml.property  name="gradeList"
+	 * @uml.associationEnd  multiplicity="(0 -1)" elementType="gradeSystem.Grades"
+	 */
 	private LinkedList<Grades> gradeList;
+	/**
+	 * @uml.property  name="listSize"
+	 */
 	private int listSize;
 	
 	public GradeSystem() throws IOException{
