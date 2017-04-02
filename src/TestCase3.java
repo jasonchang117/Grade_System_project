@@ -1,6 +1,6 @@
 import static org.junit.Assert.*;
 
-import java.io.ByteArrayInputStream;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
@@ -9,8 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import gradeSystem.Grades;
-import gradeSystem.SystemMsg;
-import gradeSystem.UI;
+
 /*
  * 用來測Grades
  */
@@ -51,16 +50,16 @@ public class TestCase3 {
     @Test
     public void grades_showGrade_2() throws Exception{
     	double[] weights = new double[]{0.1, 0.1, 0.1, 0.3, 0.4};
-    	Grades grade = new Grades("955002056","許文馨",88, 92, 88, 98, 91);
+    	Grades grade = new Grades("962001051", "李威廷", 81 ,32, 50, 90, 93);
     	grade.calculateTotalGrade(weights);
     	grade.showGrade();
-    	assertEquals("許文馨的分數: \r\n"+ 
-        		"lab_1      : 88\r\n"+
-        		"lab_2      : 92\r\n"+
-        		"lab_3      : 88\r\n"+
-        		"mid-term   : 98\r\n"+
-        		"final-exam : 91\r\n"+
-        		"total-grade: 93\r\n", outContent.toString());
+    	assertEquals("李威廷的分數: \r\n"+ 
+        		"lab_1      : 81\r\n"+
+        		"lab_2      : 32*\r\n"+
+        		"lab_3      : 50*\r\n"+
+        		"mid-term   : 90\r\n"+
+        		"final-exam : 93\r\n"+
+        		"total-grade: 81\r\n", outContent.toString());
     }
     @Test
     public void grades_match_1() throws Exception{
