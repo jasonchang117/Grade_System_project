@@ -141,10 +141,7 @@ public class UI {
 	 * 
 	 * Pseudo code:
 	 * 1. First we get the new weights input by the user (in percentage).
-	 * 2. Ask the user again to confirm the input value.
-	 * 3. Input "Y" --> return the new weights to the gradeSystem
-	 * 4. Input "N" --> input the right value instead of the wrong value.
-	 * 5. Input invalid command will show the error message.
+	 * 2. Ask the user again to confirm the input value by calling confirmWeights.
 	 *
 	 * Time estimation O(1)
 	 * 
@@ -163,6 +160,20 @@ public class UI {
 		return confirmWeights(weights);
 	}
 	
+	/* method confirmWeights ----------------------------------------------------------------------------
+	 * 
+	 * This method let the user to confirm whether the new weights are correct.
+	 * 
+	 * @ return		A double array, newWeight.
+	 * 
+	 * Pseudo code:
+	 * 1. Input "Y" --> return the new weights to the gradeSystem
+	 * 2. Input "N" --> input the right value instead of the wrong value.
+	 * 3. Input invalid command will show the error message.
+	 *
+	 * Time estimation O(1)
+	 * 
+	 ----------------------------------------------------------------------------------------------------*/
 	private double[] confirmWeights(double[] weights){
 		System.out.print(SystemMsg.confirmNewWeightMsg);
 		String option = scanner.next();
