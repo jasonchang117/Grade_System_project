@@ -58,7 +58,7 @@ public class Grades {
 	 * @ return		a private integer, totalGrade
 	 * 
 	 * Pseudo code:
-	 * 1. simply return totalGrade
+	 * 1. simply return totalGrade of this class
 	 *
 	 * Time estimation O(1)
 	 * 
@@ -79,7 +79,7 @@ public class Grades {
 	 * @ return		a private string, studentID
 	 * 
 	 * Pseudo code:
-	 * 1. simply return studentID
+	 * 1. simply return studentID of this class
 	 *
 	 * Time estimation O(1)
 	 * 
@@ -100,7 +100,7 @@ public class Grades {
 	 * @ return		a private integer array, scores
 	 * 
 	 * Pseudo code:
-	 * 1. simply return scores
+	 * 1. simply returns scores of this class
 	 *
 	 * Time estimation O(1)
 	 * 
@@ -121,7 +121,7 @@ public class Grades {
 	 * @ return		a private string, name
 	 * 
 	 * Pseudo code:
-	 * 1. simply return name
+	 * 1. simply returns name of this class
 	 *
 	 * Time estimation O(1)
 	 * 
@@ -143,7 +143,7 @@ public class Grades {
 	 * @ return		a boolean value
 	 * 
 	 * Pseudo code:
-	 * 1. simply return boolean value.  Return true if the input studentID is matching the studentID of this class.
+	 * 1. simply returns a boolean value.  Return true if the input studentID is matching the studentID of this class.
 	 *
 	 * Time estimation O(1)
 	 * 
@@ -158,7 +158,7 @@ public class Grades {
 	
 	/* method showGrade ---------------------------------------------------------------------------------
 	 * 
-	 * This method show the grades of the student.
+	 * This method show the grades of the student. We will print "*" if the grade is below 60.
 	 * 
 	 * Pseudo code:
 	 * 1. simply print all the grades and use an if statement to decide whether it should print "*".
@@ -187,7 +187,7 @@ public class Grades {
 	 * @ return		a private integer, totalGrade
 	 * 
 	 * Pseudo code:
-	 * 1. simply return totalGrade
+	 * 1. simply returns totalGrade of this class
 	 *
 	 * Time estimation O(1)
 	 * 

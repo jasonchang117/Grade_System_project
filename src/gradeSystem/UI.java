@@ -140,7 +140,7 @@ public class UI {
 	 * @ return		A double array, newWeight.
 	 * 
 	 * Pseudo code:
-	 * 1. First we get the new weights input by the user.
+	 * 1. First we get the new weights input by the user (in percentage).
 	 * 2. Ask the user again to confirm the input value.
 	 * 3. Input "Y" --> return the new weights to the gradeSystem
 	 * 4. Input "N" --> input the right value instead of the wrong value.

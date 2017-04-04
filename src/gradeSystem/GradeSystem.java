@@ -54,11 +54,11 @@ public class GradeSystem {
 	 * This method returns the boolean value that whether the studentID is in the gradeList.
 	 * 
 	 * @ param		A string. A studentID to be check.
-	 * @ return		A boolean value, true if we find the ID.
+	 * @ return		A boolean value, return true if we find the target ID.
 	 * 
 	 * Pseudo code:
 	 * 1. A for loop that go through the whole list and check the studentID.
-	 * 2. If we find the target studentID, returns true. Returns false if we cannot find the same studentID.
+	 * 2. If we find the target studentID, it returns true. Return false if we cannot find the same studentID.
 	 *
 	 * Time estimation O(n)
 	 * 
@@ -146,7 +146,7 @@ public class GradeSystem {
 	 * @ param		an input double array, newWeight.
 	 * 
 	 * Pseudo code:
-	 * 1. We first get the new value of weights and check the sum which is valid or not.
+	 * 1. We first get the new value of weights and check the sum is valid or not.
 	 * 2. If the new weights are valid, we update the weights.
 	 * 3. We re-calculate all the totalGrades in the list.
 	 * 4. Call sortGrade() method to update the rank.
@@ -181,7 +181,7 @@ public class GradeSystem {
 	 * 1. Use the build-in method to sort the gradeList.
 	 * 2. Implement the compare function that our final list is sorted from higher score to lower score.
 	 * 
-	 * Time estimation O( n log(n) )   Note that built-in sorting method is modified merge-sort.
+	 * Time estimation O( n log(n) )   Note that the built-in sorting method is modified merge-sort.
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
 	private void sortGrades(){
@@ -224,14 +224,14 @@ public class GradeSystem {
 		return sum;
 	}
 	
-	/* method updateWeights ------------------------------------------------------------------------------
+	/* method searchName --------------------------------------------------------------------------------
 	 * 
 	 * This method updates the weights of each subject in this class.
 	 * 
 	 * @ param		A string. The input studentID that we want to show its name.
 	 * 
 	 * Pseudo code:
-	 * 1. We first go through the whole list and find our terget studentID.
+	 * 1. We first go through the whole list and find our target studentID.
 	 * 2. Call grade.getName() to print the user's name.
 	 * 
 	 * Time estimation O(n)
