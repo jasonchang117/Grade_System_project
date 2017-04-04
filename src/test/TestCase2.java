@@ -9,6 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import gradeSystem.NoSuchIDExceptions;
 import gradeSystem.SystemMsg;
 import gradeSystem.UI;
 
@@ -44,9 +45,12 @@ public class TestCase2 {
     	System.setIn(action);
     	
     	UI ui = new UI();
-    	ui.checkID("956002056");
+    	try{
+    		ui.checkID("956002056");
+    	}catch(NoSuchIDExceptions e){
+    		assertEquals("Error: " + SystemMsg.errorIdMsg, e.getMessage());
+    	}
     	
-    	assertEquals(SystemMsg.errorIdMsg, outContent.toString());
     }
     @Test
     public void ui_promptID_1() throws Exception{

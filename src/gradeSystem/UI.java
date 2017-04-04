@@ -41,15 +41,19 @@ public class UI {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	public void checkID(String studentID)
+	public void checkID(String studentID) throws NoSuchIDExceptions
 	{
 		if(aGradeSystem.containsID(studentID))
 		{
-			System.out.println(SystemMsg.welcomeMsg + aGradeSystem.searchName(studentID));
-			userID = studentID;
-			promptCommand();
+			try{
+				System.out.println(SystemMsg.welcomeMsg + aGradeSystem.searchName(studentID));
+				userID = studentID;
+				promptCommand();
+			}catch(NoSuchCommandExceptions e){
+				System.out.print(e.getMessage());
+			}
 		}else{
-			System.out.print(SystemMsg.errorIdMsg);
+			throw new NoSuchIDExceptions();
 		}
 	}
 	
@@ -70,7 +74,7 @@ public class UI {
 	 * Time estimation O(1)
 	 * 
 	 ----------------------------------------------------------------------------------------------------*/
-	private void promptCommand()
+	private void promptCommand() throws NoSuchCommandExceptions
 	{
 		System.out.print(SystemMsg.promptCommandMsg);
 		String command = scanner.next();
@@ -92,9 +96,7 @@ public class UI {
 				promptID();
 				return;
 			default:
-				System.out.print(SystemMsg.commandError);
-				promptCommand();
-				return;
+				throw new NoSuchCommandExceptions();
 		}
 		promptCommand();
 	}
@@ -122,7 +124,12 @@ public class UI {
 		}
 		else
 		{
-			checkID(option);
+			try{
+				checkID(option);
+			}catch(NoSuchIDExceptions e){
+				System.out.print(e.getMessage());
+			}
+			
 		}
 	}
 	
